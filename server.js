@@ -37,6 +37,10 @@ app.get("/uploads-list", (req, res) => {
   res.json(files);
 });
 
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
+
 app.listen(PORT, () =>
   console.log(`🚀 Server running at http://localhost:${PORT}`)
 );

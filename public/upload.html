@@ -516,10 +516,12 @@ header h1 {
           alert('✅ Upload Successful!');
           
           // Redirect to WhatsApp DM (replace with your number)
-          const phone = '234 915 741 7925'; // your WhatsApp number (with country code, no +)
+          const phone = '2349157417925'; // your WhatsApp number (with country code, no +)
           const message = encodeURIComponent("Hello! I just uploaded my payment receipt. Kindly confirm.");
           const whatsappUrl = `https://wa.me/${phone}?text=${message}`;
-          window.location.href = whatsappUrl;
+          //window.location.href = whatsappUrl;
+          window.open(whatsappUrl, "_blank");
+
           
           form.reset();
         } else {
