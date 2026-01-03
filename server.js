@@ -7,8 +7,22 @@ import cors from "cors"; // 👈 NEW
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+if (!fs.existsSync("uploads")) {
+  fs.mkdirSync("uploads");
+}
+
 // Enable CORS (so your admin panel hosted elsewhere can fetch uploads)
-app.use(cors());
+//app.use(cors());
+app.use(cors({
+  origin: [
+    "https://enex-hbk0.onrender.com"
+  ],
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type"],
+}));
+
+app.options("*", cors());
+
 
 // Setup multer to save files in /uploads folder
 const storage = multer.diskStorage({
